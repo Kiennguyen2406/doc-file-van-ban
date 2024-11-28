@@ -12,7 +12,7 @@ public class WordFrequencyCounter {
     public static Map<String, Integer> countWordFrequency(String filePath) throws IOException {
         Map<String, Integer> wordFrequency = new HashMap<>();
 
-        // Sử dụng try-with-resources để tự động đóng BufferedReader
+
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
 
@@ -30,11 +30,11 @@ public class WordFrequencyCounter {
         return wordFrequency;
     }
 
-    // Phương thức hiển thị tần suất từ
+
     public static void displayWordFrequency(Map<String, Integer> wordFrequency) {
         System.out.println("Word Frequency in the file:");
 
-        // Sắp xếp từ theo tần suất giảm dần (tuỳ chọn)
+
         Map<String, Integer> sortedFrequency = wordFrequency.entrySet()
                 .stream()
                 .sorted((e1, e2) -> e2.getValue().compareTo(e1.getValue())) // Sort by frequency
@@ -45,7 +45,7 @@ public class WordFrequencyCounter {
                         LinkedHashMap::new
                 ));
 
-        // In ra từ và tần suất
+
         for (Map.Entry<String, Integer> entry : sortedFrequency.entrySet()) {
             System.out.printf("%-15s: %d%n", entry.getKey(), entry.getValue());
         }
